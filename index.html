@@ -38,16 +38,20 @@
 
       <div class="jumbotron">
         <h1 class="display-3">Perfect Pitch Quiz</h1>
-        <p>In this exercise, you will hear a single note. Your goal is to identify the name of the note. For best results, practice a little bit every day.</p>
+        <p>In this exercise, you will hear a single note. Your goal is to identify the name of the note.</p>
         <div class="dropdown">
         <p>Available Notes</p>
-        <button class="dropbtn">Dropdown</button>
-        <div class="dropdown-content">
-          <a href="#">Simple (C, D, E)</a>
-          <a href="#">Advanced (C, D, E, F, G)</a>
-          <a href="#">C Scale (C, D, E, F, G, A, B)</a>
-          <a href="#">Chromatic (All Notes)</a>
-        </div>
+          <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Simple (C, D, E)</a>
+              <a class="dropdown-item" href="#">Advanced (C, D, E, F, G)</a>
+              <a class="dropdown-item" href="#">C Scale (C, D, E, F, G, A, B)</a>
+            </div>
+          </div>
       </div>
       <div>
       <p>Number of Questions</p>
