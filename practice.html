@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="https://rawgit.com/nexus-js/ui/master/dist/NexusUI.js"></script>
+</head>
+
+<body>
+
+  
+  <canvas nx="keyboard" id="keyboard"></canvas>
+  <div id="note_played">
+    <h2></h2>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+    var audio_context = window.AudioContext || window.webkitAudioContext;
+    var con = new audio_context();
+    var osc = con.createOscillator();
+    osc.connect(con.destination);
+    
+    var keyboard;
+    
+    nx.onload = function(){ 
+      // if the keyboard changes, call the keyboardPlayed function
+      keyboard.on('*', keyboardPlayed);
+    };
+    
+    function keyboardPlayed(data){
+      osc.frequency.value = data.value; // update the freq using the value from the keyboard
+      console.log(data);
+    }
+    
+    osc.play();
+  </script>
+</body>
+
+</html>
