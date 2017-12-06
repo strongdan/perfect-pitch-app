@@ -12,6 +12,7 @@
   <link href="css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="css/Piano-Keyboard.css">
   <link rel="stylesheet" href="css/Piano-Keyboard.css">
+  <script src="webcomponents-lite.js" defer></script>
   <script src="js/Piano-Keyboard.js" defer></script>
   <script src="js/demo.js" defer></script>
   <script src="js/NexusUI.js"></script>
@@ -20,11 +21,11 @@
 
 <body>
   <h1>Practice Keyboard</h1>
-	<p>
-	  <openmusic-piano-keyboard id="full" octaves="2"></openmusic-piano-keyboard>
-	  <span id="fullEvents">events dispatched by this keyboard will show up here</span>
-	</p>
 	<p><openmusic-piano-keyboard id="small" octaves="1"></openmusic-piano-keyboard></p>
+		<p>
+			<openmusic-piano-keyboard id="full" octaves="2"></openmusic-piano-keyboard>
+			<span id="fullEvents">events dispatched by this keyboard will show up here</span>
+</p>
   <br>
   <canvas min="100" max="1000" id="slider1" nx="slider"></canvas>
     
