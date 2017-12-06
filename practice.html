@@ -15,6 +15,16 @@
 </head>
 
 <body>
+  <canvas min="100" max="1000" id="slider1" nx="slider"></canvas>
+    
+
+    <br>
+    <canvas id="keyboard" nx="keyboard"></canvas>
+    
+    <br>
+    Start: 
+    <canvas id="startBtn" nx="button"></canvas>
+  
   <canvas nx="keyboard" id="keyboard"></canvas>
   <div id="note_played">
   </div>
@@ -59,6 +69,54 @@
     
     
   </script>
-</body>
+
+  <script>
+
+  var audio_context = window.AudioContext || window.webkitAudioContext;
+  var con = new audio_context();
+
+  var osc = con.createOscillator();
+  osc.connect(con.destination);
+  //osc.start();
+
+  var slider1, keyboard, startBtn;
+
+  nx.onload = function(){
+      slider1.on('*', slider1Changed);  
+      keyboard.on('*', keyboardChanged); 
+      startBtn.on('*', startSynth);
+  };
+
+  var midi_to_freq = {
+    60:261.63, 
+    61:277.18, 
+    62:293.66, 
+    63:311.13, 
+    64:329.63, 
+    65:349.23, 
+    66:369.99, 
+    67:392.00,	
+    68:415.30, 
+    // you can add more from here...
+      ///http://www.phy.mtu.edu/~suits/notefreqs.html
+  };
+
+
+  function startSynth(){
+      osc.start();
+  }
+  function keyboardChanged(data){
+      //console.log(data);
+      osc.frequency.value = midi_to_freq[data.note];
+  }
+
+  function slider1Changed(data){
+      osc.frequency.value = data.value;
+      //console.log(data);
+  }
+
+  </script>
+  
+  </body>
 
 </html>
